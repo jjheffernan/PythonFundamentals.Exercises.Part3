@@ -7,7 +7,7 @@ created by jj on 8 jul 2022
 import random
 
 player_num = 0
-comp_guess = random.randint(1, 10)
+comp_guess = 0
 game_status = True
 
 print("""
@@ -15,9 +15,17 @@ print("""
     """)
 
 
+def computer_guess():
+    global comp_guess
+    comp_guess = random.randint(1, 10)
+
+
+
 def number_input():
     global player_num
-    return player_num == input("guess a number between 1 and 10: ")
+    player_num == input("guess a number between 1 and 10: ")
+    # print(player_num)
+    return player_num
 
 
 def number_return():
@@ -26,7 +34,7 @@ def number_return():
     return player_num
 
 
-def comp_guess():
+def compare_guess():
     global game_status
     if player_num > comp_guess:
         print("Too High")
@@ -39,9 +47,10 @@ def comp_guess():
 
 def play_again():
     global game_status
-    choice = input("do you want to keep playing? (Y/N)")
+    choice = input("do you want to keep playing? (Y/N) ")
     if choice.lower == 'y':
         game_status = True
+        game()
     else:
         game_status = False
 
@@ -50,15 +59,16 @@ def game():
     global game_status
     while game_status:
         number_input()
-        comp_guess()
+        compare_guess()
         number_return()
         play_again()
 
 
 def main():
     """main function"""
-    number_input()
-    number_return()
+    game()
+    # number_input()
+    # number_return()
 
 
 if __name__ == '__main__':
