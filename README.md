@@ -22,6 +22,7 @@ print(randrange(10))
 print(randrange(10))
 # 5
 ```
+# done (jj)
 
 ## Exercise 2
 
